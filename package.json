@@ -1,0 +1,16 @@
+{
+  "name": "reddit-stalker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "stalk.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "colors": "^1.1.2",
+    "moment": "^2.18.1"
+  }
+}
