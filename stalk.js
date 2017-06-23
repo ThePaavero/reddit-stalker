@@ -4,6 +4,7 @@ const moment = require('moment')
 const config = require('./config.json')
 
 const userNames = config.userNames
+const clearTerminalOnTick = config.clearTerminalOnTick
 const intervalInMilliseconds = config.pingIntervalInSeconds * 1000
 const apiEndpointUrlTemplate = 'https://www.reddit.com/user/[USERNAME]/comments.json'
 const itemsPerUser = config.itemsPerUser
@@ -21,7 +22,9 @@ const getEndpointUrl = userName => {
 }
 
 const tick = () => {
-  clearTerminal()
+  if (clearTerminalOnTick) {
+    clearTerminal()
+  }
   userNames.forEach(userName => {
     const url = getEndpointUrl(userName)
     axios.get(url)

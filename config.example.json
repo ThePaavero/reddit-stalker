@@ -3,6 +3,7 @@
     "Shitty_Watercolour",
     "GovSchwarzenegger"
   ],
+  "clearTerminalOnTick": true,
   "itemsPerUser": 5,
   "pingIntervalInSeconds": 30
 }
