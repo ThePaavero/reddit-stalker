@@ -10,7 +10,7 @@ const itemsPerUser = 5
 let tickerId = null
 
 const init = () => {
-  console.log('Stalking of ' + (userNames.join(', ')) + 'commencing...'.green)
+  console.log('Stalking of ' + (userNames.join(', ')) + ' commencing...')
   tick()
   tickerId = setInterval(tick, intervalInMilliseconds)
 }
@@ -20,19 +20,29 @@ const getEndpointUrl = userName => {
 }
 
 const tick = () => {
+  clearTerminal()
   userNames.forEach(userName => {
-    console.log('Pinging "' + userName + '"...')
     const url = getEndpointUrl(userName)
     axios.get(url)
       .then(response => {
         render(userName, response.data.data.children.slice(0, itemsPerUser))
+        if (userNames.indexOf(userName) !== userNames.length - 1) {
+          printHorizontalRule()
+        }
       })
       .catch(console.error)
   })
 }
 
+const printHorizontalRule = () => {
+  console.log('\n------------------------------\n'.gray)
+}
+
+const clearTerminal = () => {
+  process.stdout.write('\033c')
+}
+
 const render = (userName, items) => {
-  console.log('\n-----------------\n')
   let output = ''
   items.forEach(commentObject => {
     output += parseCommentObjectToOutput(userName, commentObject.data)
