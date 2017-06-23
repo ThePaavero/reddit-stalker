@@ -7,7 +7,9 @@ CLI tool for keeping tabs on what given users are saying on Reddit.
 `$ yarn`
 
 ## Configuring
-Edit the userNames array.
+`$ mv config.example.json config.json`
+
+Edit the config file to suit your needs.
 
 ## Using
 `$ node stalk.js`

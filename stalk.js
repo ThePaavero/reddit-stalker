@@ -1,11 +1,12 @@
 const colors = require('colors')
 const axios = require('axios')
 const moment = require('moment')
+const config = require('./config.json')
 
-const userNames = ['Shitty_Watercolour', 'GovSchwarzenegger']
-const intervalInMilliseconds = 20000
+const userNames = config.userNames
+const intervalInMilliseconds = config.pingIntervalInSeconds * 1000
 const apiEndpointUrlTemplate = 'https://www.reddit.com/user/[USERNAME]/comments.json'
-const itemsPerUser = 5
+const itemsPerUser = config.itemsPerUser
 
 let tickerId = null
 
