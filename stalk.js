@@ -60,7 +60,7 @@ const parseCommentObjectToOutput = (userName, comment) => {
   const upVotes = comment.ups.toString().green
   const bodyPreview = (commentString.replace(/\n/g, '').substr(0, 30) + '...').yellowBG.black
   const timeStampString = moment.unix(comment.created_utc).format('YYYY.MM.DD HH:mm:SS')
-  return `(${upVotes}) - ${timeStampString}: ${userName.cyanBG.black} said "${bodyPreview}" @ ${subRedditString}\n\t-> ${link}\n`
+  return `(${upVotes})\t${timeStampString}: ${userName.cyanBG.black} said "${bodyPreview}" @ ${subRedditString}\n\t\t-> ${link}\n\n`
 }
 
 init()
